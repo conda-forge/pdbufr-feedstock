@@ -6,26 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: a9ea85e29cad5c66a0573f28ac21874df37859516458b311b5e3398bbc8e9c78
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - pytest-runner
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - attrs
     - pandas
     - python-eccodes >=0.9.8
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - pdbufr
 
