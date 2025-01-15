@@ -10,22 +10,24 @@ source:
   sha256: 5127db40ac3a84850dafe547193ff02f845a8a7c58ed9e68476ef5f4675b7709
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - pytest-runner
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - attrs
     - pandas
     - python-eccodes >=0.9.8
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - pdbufr
 
