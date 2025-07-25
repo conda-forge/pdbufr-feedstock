@@ -10,7 +10,7 @@ source:
   sha256: 1f206f9b8f6fea23bc234a323b0f73fc71b22626cce4a352c8962d1e9a2ead4d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
@@ -19,17 +19,23 @@ requirements:
     - python {{ python_min }}
     - pip
     - pytest-runner
+    - setuptools >=61
+    - setuptools-scm >=8
   run:
     - python >={{ python_min }}
     - attrs
     - pandas
-    - python-eccodes >=0.9.8
+    - pint
+    - python-eccodes
 
 test:
   requires:
     - python {{ python_min }}
+    - pip
   imports:
     - pdbufr
+  commands:
+    - pip check
 
 about:
   home: https://github.com/ecmwf/pdbufr
@@ -44,3 +50,4 @@ extra:
   recipe-maintainers:
     - sandorkertesz
     - iainrussell
+    - xylar
