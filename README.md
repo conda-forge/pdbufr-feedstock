@@ -149,4 +149,5 @@ Feedstock Maintainers
 
 * [@iainrussell](https://github.com/iainrussell/)
 * [@sandorkertesz](https://github.com/sandorkertesz/)
+* [@xylar](https://github.com/xylar/)
 
