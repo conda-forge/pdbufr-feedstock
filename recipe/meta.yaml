@@ -26,7 +26,7 @@ requirements:
     - attrs
     - pandas
     - pint
-    - python-eccodes >=0.9.8
+    - python-eccodes
 
 test:
   requires:
