@@ -1,5 +1,5 @@
 {% set name = "pdbufr" %}
-{% set version = "0.14.1" %}
+{% set version = "0.14.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e7d0c4a7da1bafa59dc9c5f69e260f4932293acfcfee3a707f8aabc9acbc3b34
+  sha256: 5fd40f4dd07ef7b56f5d0c065debddb4afd45ddaa453addc731249ced8d31d13
 
 build:
   number: 0
