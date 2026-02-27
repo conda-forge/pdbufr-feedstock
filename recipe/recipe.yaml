@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  name: pdbufr
+  version: 0.14.2
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 5fd40f4dd07ef7b56f5d0c065debddb4afd45ddaa453addc731249ced8d31d13
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - pytest-runner
+    - setuptools >=61
+    - setuptools-scm >=8
+  run:
+    - python >=${{ python_min }}
+    - attrs
+    - pandas
+    - pint
+    - python-eccodes
+
+tests:
+  - python:
+      imports:
+        - pdbufr
+      pip_check: true
+      python_version: ${{ python_min }}.*
+
+about:
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: Extracts data from a BUFR file as a Pandas DataFrame using ecCodes
+  homepage: https://github.com/ecmwf/pdbufr
+  repository: https://github.com/ecmwf/pdbufr
+  documentation: https://pdbufr.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - sandorkertesz
+    - iainrussell
+    - xylar
