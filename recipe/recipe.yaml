@@ -21,22 +21,24 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - pytest-runner
     - setuptools >=61
+    # setuptools-scm[toml] needs nothing extra on conda-forge
     - setuptools-scm >=8
   run:
     - python >=${{ python_min }}
     - attrs
+    - python-eccodes
     - pandas
     - pint
-    - python-eccodes
 
 tests:
   - python:
       imports:
         - pdbufr
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   license: Apache-2.0
