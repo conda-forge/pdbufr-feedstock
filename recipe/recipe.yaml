@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: pdbufr
-  version: "0.15.1"
+  version: "0.16.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 3bbd7e3dba647ffa9d0bdc111dba6fe2dc37b16b3b9786baa71c3c0975083207
+  sha256: baea51938ed8cc13e72b73b38601a9a6ab851b3408276ada4704a91255ce4ed1
 
 build:
   number: 0
